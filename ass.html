@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            text-decoration: none;
+        }
+        li, a {
+            text-decoration: none;
+        }
+        header{
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: cornflowerblue;
+            margin-bottom: 100px;
+            /* border: 1px solid red; */
+        }
+        .nav_items{
+            list-style: none;
+            margin-left: 20px;
+            
+        }
+        .nav_items li {
+            display: inline-block;
+        }
+        .nav_items li a {
+            transition: all 0.3s ease;
+            color: white;
+            margin: 0 20px;
+            padding: 10px;
+            /* border: 1px solid red; */
+        }
+       a.active, .nav_items li a:hover{
+            background-color: darkslategray;
+            transition: 0.5s;
+        }
+        nav~a{
+            color: white;
+        }
+        .slider-box{
+            width: 100%;
+            height: 90vh;
+            margin: auto;
+            margin-top: -100px;
+            /* position: relative; */
+            /* border: 1px solid red; */
+            overflow: hidden;
+        }
+        #slider{
+            width: 100%;
+            display: inline-flex;
+            transition: 0.7s;
+        }
+        #slider img{
+            width: 100%;
+        }
+        .indicators{
+            position: absolute;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+        }
+        .indicators span{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+        }
+        .active-ind{
+            background: #fff !important;
+        }
+        #upper-why{
+            display: flex;
+            justify-content: space-around;
+            /* border: 1px solid red; */
+            padding: 30px;
+            background-color: white;
+        }
+        .why1{
+            margin: 0 40px;
+            /* border: 1px solid red; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .why1 h2{
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            
+        }
+        .why1 p{
+            font-size: 15px;
+        }
+        #why-us{
+            margin: 20px;
+            height: 80vh;
+            background-color: azure;
+        }
+        .why-us{
+            /* border: 1px solid red; */
+            align-items: center;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;    
+        }
+        #lower-why{
+            display: flex;
+            background-color: white;
+            width: 100%;
+            height: 150px;
+            justify-content: space-between;
+        }
+        #lower-why div{
+            width: 10%;
+            margin: 10px;
+
+        }
+        .why-logo2{
+            width: 100%;
+        }
+        #lower-why img{
+            width: 100%;
+        }
+        .subscription{
+            align-items: center;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;    
+        }
+        #pricing-box{
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid green; */
+            font-size: 20px;
+        }
+        #pricing-box>div{
+            margin: 10px;
+        }
+        .basic{
+            padding: 20px 30px;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            /* border: 1px solid red; */
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+        .basic h2{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            letter-spacing: 1px;
+            font-size: 20px;
+            font-weight: light;
+            color: #fff;
+        }
+        .basic button{
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: 0px solid green;
+        }
+        .contact-us{
+            align-items: center;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bolder;    
+            background-color: azure;
+        }
+        #contact{
+            display: flex;
+            width: 100%;
+            padding: 0 30px;
+            background-color: azure;
+            justify-content: center;
+        }
+        #contact>div{
+            margin: 0 30px;
+        }
+        #left-con{
+            width: 30%;
+            background-color: #fff;
+            height: fit-content;
+        }
+        #left-con>h1{
+            font-size: 40px;
+            margin-right: 40px;
+            padding: 0 20px;
+        }
+        #left-con>h1~p{
+            color: gray;
+        }
+        #right-con{
+            width: 40%;
+            justify-content: center;
+            background-color: #fff;
+        }
+        .yellow-box{
+            width: 80%;
+            background-color: lightyellow;
+            margin: 20px 0;
+        }
+        #input-name{
+            display: flex;
+        }
+        form input{
+            padding: 5px;
+        }
+        form .input2{
+            width: 65%;
+        }
+        form h5{
+            font-size: 15px;
+            margin: 10px 0;
+        }
+        .input3{
+            width: 65%;
+            height: 80px;
+        }
+        .input-name2{
+            margin-left: 10px;
+        }
+        #select{
+            padding: 5px;
+            width: 65%;
+        }
+        form p {
+            color: gray;
+        }
+        .form-submit{
+            color: #fff;
+            font-size: 15px;
+            background-color: orangered;
+            border: orangered;
+            margin-top: 15px;
+            padding: 10px 30px;
+            border-radius: 2%;
+        }
+        footer{
+            margin-top: 10px;
+            background-color: #34495e;
+            color: white;
+        }
+        #box1{
+            display: flex;
+            height: 200px;
+        }
+        #box1 div{
+            width: 20%;
+            display: grid;
+            /* grid-column: auto; */
+            margin: 20px;
+        }
+        #box2{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        #fcontent{
+            margin: 20px;
+        }
+        footer a {
+            color: white;
+        }
+        #box3 i{
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 50%;
+            margin: 10px;
+        }
+        #box3, #box4{
+            display: flex;
+            justify-content: center;
+        }
+        #box2 button{
+            padding: 5px 10px;
+            background-color: darkslategrey;
+            border: 1px solid white;
+            color: #fff;
+            border-radius: 40%;
+            margin-left: 10px;
+        }
+        #break{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            justify-content: center;
+        }
+        #break::before , #break::after {
+            content: "";
+            height: 1px;
+            background-color: black;
+            display: block;
+        }
+        .checkbtn{
+            display: none;
+            cursor: pointer;
+        }
+        #arr1{
+            font-size: 30px;
+            position: absolute; 
+            bottom: 300px;
+            left: 5%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            cursor: pointer;
+            background: rgba(255,255,255,0.5);
+            opacity: 60%;
+        }
+        #arr2{
+            opacity: 60%;
+            font-size: 30px;
+            position: absolute; 
+            bottom: 300px;
+            left: 95%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: white;            
+            cursor: pointer;
+            background: rgba(255,255,255,0.5);
+        }
+        @media (max-width: 62em){
+            nav{
+                display: none;
+            }
+            .checkbtn{
+                display: block;
+            }
+            header{
+                float: right;
+                margin-right: 40px;
+                cursor: pointer;
+                display: block;
+            }
+        }
+    </style>
+    <title>Assignmnent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+        <header>
+                <label for="check" class="checkbtn">
+                 <i class="fas fa-bars"></i>
+                </label>
+            <nav>
+               <ul class="nav_items">
+                    <li> <a class="active" href="#home">HOME</a> </li>
+                    <li> <a href="#">PRODUCTS</a> </li>
+                    <li> <a href="#">SERVICES</a> </li>
+                    <li> <a href="#">TEAM</a> </li>
+                    <li> <a href="#">PORTFOLIO</a></li>
+                    <li> <a href="#">CONTACT</a></li>
+               </ul>
+            </nav>
+            <a href="#Blog">Go My Blog</a>
+        </header>
+        <div id="content">
+            <div class="slider-box" >
+                <div id="slider">
+                    <img src="./lake1.jpg">
+                    <img src="./lake2.jpg">
+                    <img src="./lake3.jpg">
+                </div>
+                <div class="arrows">
+                    <span id="arr1">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </span>
+                    <span id="arr2">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </span>
+                </div>
+                <div class="indicators">
+                    <span id="btn1" class="active-ind"></span>
+                    <span id="btn2"></span>
+                    <span id="btn3"></span>
+                </div>
+            </div>
+            <div id="why-us">
+                <div class="why-us"> WHY US </div>
+                <div id="upper-why">
+                    <div class="why1">
+                        <h2>11+ Years</h2>
+                        <p>Experience in Teaching Kids</p>
+                    </div>
+                    <div class="why1">
+                        <h2>1,300,000+</h2>
+                        <p>Hours of Learning Delivered</p>
+                    </div>
+                    <div class="why1">
+                        <h2>400,000+</h2>
+                        <p>Happy Parents</p>
+                    </div>
+                    <div class="why1">
+                        <h2>4.9/5</h2>
+                        <p>Average Rating by Students</p>
+                    </div>
+                </div>
+                <p id="break">AS SEEN IN</p>
+                <div id="lower-why">
+                    <div class="why-logo1"><img src="./logo1.webp" alt=""></div>
+                    <div class="why-logo2"><img src="./logo2.png" alt=""></div>
+                    <div class="why-logo3"><img src="./logo3.png" alt=""></div>
+                    <div class="why-logo4"><img src="./logo4.png" alt=""></div>
+                    <div class="why-logo5"><img src="./logo5.png" alt=""></div>
+                    <div class="why-logo6"><img src="./logo6.png" alt=""></div>
+                </div>
+            </div>
+            <div class="subscription">OUR SUBSCRIPTIONS</div>
+            <div id="pricing-box">
+                <div id="basic">
+                    <div class="basic" style="background-color: black;"> <h2>Basic</h2> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <h4>$9.99 / year</h4> </div>
+                    <div class="basic"> <p>10GB Storage</p> </div>
+                    <div class="basic"> <p>10 Emails</p> </div>
+                    <div class="basic"> <p>10 Domains</p> </div>
+                    <div class="basic"> <p>1GB Bandwidth</p> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <button>Sign Up</button> </div>
+                </div>
+                <div id="pro">
+                    <div class="basic" style="background-color: green;"> <h2>Pro</h2> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <h4>$24.99 / year</h4> </div>
+                    <div class="basic"> <p>25GB Storage</p> </div>
+                    <div class="basic"> <p>25 Emails</p> </div>
+                    <div class="basic"> <p>25 Domains</p> </div>
+                    <div class="basic"> <p>2GB Bandwidth</p> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <button>Sign Up</button> </div>
+                </div>
+                <div id="premium">
+                    <div class="basic" style="background-color: black;"> <h2>Premium</h2> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <h4>$49.99 / year</h4> </div>
+                    <div class="basic"> <p>50GB Storage</p> </div>
+                    <div class="basic"> <p>50 Emails</p> </div>
+                    <div class="basic"> <p>50 Domains</p> </div>
+                    <div class="basic"> <p>5GB Bandwidth</p> </div>
+                    <div class="basic" style="background-color: lightgrey;"> <button>Sign Up</button> </div>
+                </div>
+            </div>
+            <div class="contact-us">CONTACT US</div>
+            <div id="contact">
+                <div id="left-con">
+                    <h1>Contact our Sales team</h1>
+                    <p>let's explore how Notion can work for you</p>
+                    <div class="yellow-box">
+                        <p>One flexible tool for your entire company toshare knowledge, ship project, and collaborate.</p>
+                        <hr>
+                        <p>Enterprise features to securely manage user access and security.</p>
+                        <hr>
+                        <p>One flexible tool for your entire company toshare knowledge, ship project, and collaborate.</p>
+                    </div>
+                    <p>Looking for support? <ins>Visit help & documentation</ins> </p>
+                </div>
+                <div id="right-con">
+                    <form>
+                        <div id="input-name">
+                            <div class="input-name1">
+                                <h5> First name*</h5>
+                                <input type="text" placeholder="Ada"></div>
+                            <div class="input-name2">
+                                <h5>Last name*</h5>
+                                <input type="text" placeholder="Lovelace">
+                            </div>
+                        </div>
+                        <h5>Work email*</h5>
+                        <input type="email" placeholder="ada@lovelace.app" class="input2">
+                        <h5>Company name*</h5>
+                        <input type="text" placeholder="Lovelace Inc." class="input2">
+                        <h5>Company size*</h5>
+                        <select name="size" id="select" >
+                            <option disabled="disabled" selected="selected">Plese select...</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>more</option>
+                        </select>
+                        <h5 for="">Country or region*</h5>
+                        <select name="country" id="select">
+                            <option disabled="disabled" selected="selected">Plese select...</option>
+                            <option value="">India</option>
+                            <option value="">Any Other</option>
+                        </select>
+                        <h5 for="">Anything else?</h5>
+                        <input type="text" placeholder="How are you looking to use Notion?" class="input3">
+                        <p>By sybmitting this form, I acknowledge receipt of the Notion Privacy Policy.</p>
+                        <p>Fields marked with an asterisk(*) are required</p>
+                        <button class="form-submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div id="footer">
+                <div id="box1">
+                    <div id="fcontent">
+                        <h3>FOOTER CONTENT</h3>
+                        <P>las tes kjhglejkrlo lkjfgn kjh kljkdf dlskg sdkg sdlkg fdlgkgk dlkfjr dlf 
+                            dlfjrglg ;rlgjk f;glkg adhghj sdkjf djf djf djf djnjfg dkjgk fkgk fknb fkb </P>
+                    </div>
+                    <div id="linkOne">
+                        <h3>LINKS</h3>
+                        <a href="#">LINK 1</a>
+                        <a href="#">LINK 2</a>
+                        <a href="#">LINK 3</a>
+                        <a href="#">LINK 4</a>
+                    </div>
+                    <div id="linkTwo">
+                        <h3>LINKS</h3>
+                        <a href="#">LINK 1</a>
+                        <a href="#">LINK 2</a>
+                        <a href="#">LINK 3</a>
+                        <a href="#">LINK 4</a>
+                    </div>
+                    <div id="linkThree">
+                        <h3>LINKS</h3>
+                        <a href="#">LINK 1</a>
+                        <a href="#">LINK 2</a>
+                        <a href="#">LINK 3</a>
+                        <a href="#">LINK 4</a>
+                    </div>
+                    <div id="linkFour">
+                        <h3>LINKS</h3>
+                        <a href="#">LINK 1</a>
+                        <a href="#">LINK 2</a>
+                        <a href="#">LINK 3</a>
+                        <a href="#">LINK 4</a>
+                    </div>
+                </div>    
+                <div id="box2">
+                    <h5>Register For Free</h5>
+                    <button>Sign Up!</button>
+                </div>
+                <div id="box3">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                <div id="box4">
+                    <i class="fa-regular fa-copyright"></i>
+                   <p style="margin-left: 5px;">2020 Copyright: MDBootstrap.com</p> 
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
+<script>
+    var slide = document.getElementById("slider");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var arr1 = document.getElementById("arr1");
+    var arr2 = document.getElementById("arr2");
+
+    arr1.onclick = function(x){
+        if(slide.style.transform = "translateX(0px)"){
+            slide.style.transform = "translateX(-200%)"
+            btn3.classList.add("active-ind");
+            btn1.classList.remove("active-ind")
+            btn2.classList.remove("active-ind")    
+        }
+    }
+
+    arr2.onclick = function(y){
+        if(slide.style.transform = "translateX(0px)"){
+            slide.style.transform = "translateX(-100%)"
+            btn2.classList.add("active-ind");
+            btn3.classList.remove("active-ind")
+            btn1.classList.remove("active-ind")
+        }
+    }
+
+    btn1.onclick = function(z){
+        slide.style.transform = "translateX(0px)"
+        btn1.classList.add("active-ind");
+        btn2.classList.remove("active-ind")
+        btn3.classList.remove("active-ind")
+    }
+    btn2.onclick = function(){
+        slide.style.transform = "translateX(-100%)"
+        btn2.classList.add("active-ind");
+        btn3.classList.remove("active-ind")
+        btn1.classList.remove("active-ind")
+    }
+    btn3.onclick = function(){
+        slide.style.transform = "translateX(-200%)"
+        btn3.classList.add("active-ind");
+        btn1.classList.remove("active-ind")
+        btn2.classList.remove("active-ind")
+    }
+</script>
